@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useStore } from '@/store/user'
+const store = useStore()
+const { account } = store
 const list = [
   {
     name: '音频',
