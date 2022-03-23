@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useStore } from '@/store/user'
-const store = useStore()
-const { account } = store
+import { userStore } from '@/store/user'
+const store = userStore()
+const { account } = store.getUserInfo
 const list = [
   {
     name: '音频',
@@ -17,7 +17,11 @@ const list = [
 </script>
 
 <template>
-  <el-row :gutter="12">
+  <span style="display:block;margin: 0 auto;text-align:center;">当前用户: <span>{{account}}</span></span>
+  <el-row
+    :gutter="12"
+    class="home-page"
+  >
     <el-col
       :span="24 / list.length"
       v-for="item in list"
@@ -30,8 +34,12 @@ const list = [
   </el-row>
 </template>
 
-<style scoped>
-.mark-item {
-  cursor: pointer;
+<style scoped lang="less">
+.home-page {
+  margin: 0 !important;
+  padding: 20px;
+  .mark-item {
+    cursor: pointer;
+  }
 }
 </style>

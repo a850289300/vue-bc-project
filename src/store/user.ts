@@ -1,14 +1,28 @@
 import { defineStore } from 'pinia'
+import { LoginParams, UserInfo } from '../api/model/userModel'
+import router from '@/router/index';
 
-export const useStore = defineStore('userInfo', {
-  state: () => {
+interface UserState {
+  userInfo: Nullable<UserInfo>
+}
+export const userStore = defineStore('userInfo', {
+  state: (): UserState => {
     return { 
-      account: '用户'
+      userInfo: null
+    }
+  },
+  getters: {
+    getUserInfo():UserInfo | null {
+      return this.userInfo
     }
   },
   actions: {
-    setAccount(val: string) {
-      this.account = val
+    setUserInfo(val: UserInfo | null) {
+      this.userInfo = val
     },
+    login(params: LoginParams) {
+      this.setUserInfo(params)
+      router.replace('/')
+    }
   },
 })

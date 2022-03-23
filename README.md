@@ -8,3 +8,11 @@
 - 引入 vue-router pinia (官网)
 - 配置 vite.config (官网)
 - 解决 Cannot find module ... or its corresponding type declarations 报错 （https://blog.csdn.net/lx1996082566/article/details/121595946）
+
+#### 2022/3/23
+
+学习（vue 获取 dom, pinia 基础使用）
+
+- 引入 less
+- 登录页面
+- 全局声明
