@@ -16,3 +16,18 @@
 - 引入 less
 - 登录页面
 - 全局声明
+
+#### 2022/3/24
+
+编写 pinia 插件（本地持久化插件）
+
+- 阅读官网 plugins 相关内容 (https://pinia.vuejs.org/core-concepts/plugins.html)
+- ts 新增模块时 需要新增相应的声明
+  ```js
+  declare module 'pinia' {
+  export interface DefineStoreOptionsBase<S, Store> {
+    // allow defining a number of ms for any of the actions
+    debounce?: Partial<Record<keyof StoreActions<Store>, number>>
+  }
+  }
+  ```

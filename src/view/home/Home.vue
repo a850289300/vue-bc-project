@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { userStore } from '@/store/user'
 const store = userStore()
-const { account } = store.getUserInfo
+const { account } = store.getUserInfo || {}
 const list = [
   {
     name: '音频',

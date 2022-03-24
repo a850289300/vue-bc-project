@@ -8,7 +8,10 @@ interface UserState {
 export const userStore = defineStore('userInfo', {
   state: (): UserState => {
     return { 
-      userInfo: null
+      userInfo: {
+        account: '',
+        password: ''
+      }
     }
   },
   getters: {
@@ -25,4 +28,8 @@ export const userStore = defineStore('userInfo', {
       router.replace('/')
     }
   },
+  extra: {
+    enableCaching: true,
+    storage: localStorage
+  }
 })
