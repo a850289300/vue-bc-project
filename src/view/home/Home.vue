@@ -6,18 +6,20 @@ const { account } = store.getUserInfo || {}
 const list = [
   {
     name: '音频',
+    key: 'audio'
   },
   {
     name: '文本',
+    key: 'txt'
   },
   {
     name: 'Ocr',
+    key: 'ocr'
   },
 ]
 </script>
 
 <template>
-  <span style="display:block;margin: 0 auto;text-align:center;">当前用户: <span>{{account}}</span></span>
   <el-row
     :gutter="12"
     class="home-page"
@@ -26,6 +28,7 @@ const list = [
       :span="24 / list.length"
       v-for="item in list"
       class="mark-item"
+      :key='item.key'
     >
       <el-card shadow="hover">
         {{item.name}}
