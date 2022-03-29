@@ -26,6 +26,13 @@ export const userStore = defineStore('userInfo', {
     login(params: LoginParams) {
       this.setUserInfo(params)
       router.replace('/')
+    },
+    logOut() {
+      this.setUserInfo(null);
+      router.replace('/login')
+    },
+    toLogin() {
+      router.replace('/login')
     }
   },
   extra: {
